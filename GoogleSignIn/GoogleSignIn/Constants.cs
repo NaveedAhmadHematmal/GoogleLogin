@@ -6,7 +6,7 @@
 
         // Google OAuth
         // For Google login, configure at https://console.developers.google.com/
-        public static string GoogleiOSClientId = "<insert IOS client ID here>";
+        public static string GoogleiOSClientId = "588984764542-uk74teltcvlmtd8268c31vheuljl379l.apps.googleusercontent.com";
         public static string GoogleAndroidClientId = "588984764542-uk74teltcvlmtd8268c31vheuljl379l.apps.googleusercontent.com";
 
         // These values do not need changing
@@ -16,7 +16,7 @@
         public static string GoogleUserInfoUrl = "https://www.googleapis.com/oauth2/v2/userinfo";
 
         // Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
-        public static string GoogleiOSRedirectUrl = "<insert IOS redirect URL here>:/oauth2redirect";
+        public static string GoogleiOSRedirectUrl = "com.googleusercontent.apps.588984764542-uk74teltcvlmtd8268c31vheuljl379l:/oauth2redirect";
         public static string GoogleAndroidRedirectUrl = "com.googleusercontent.apps.588984764542-uk74teltcvlmtd8268c31vheuljl379l:/oauth2redirect";
 
         //-------------------------------------------------------------------------------------------------------
