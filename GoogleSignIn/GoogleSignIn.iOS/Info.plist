@@ -34,7 +34,6 @@
     <string>GoogleSignIn</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>CFBundleURLTypes</key>
 	<key>CLIENT_ID</key>
 	<string>999007805390-o9s340sr8ts4u8h0mk5f7ed3il5lev2n.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
