@@ -10,7 +10,7 @@ namespace GoogleSignIn.Droid
     [IntentFilter(
         new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataSchemes = new[] { "com.googleusercontent.apps.588984764542-uk74teltcvlmtd8268c31vheuljl379l" },
+        DataSchemes = new[] { "com.googleusercontent.apps.999007805390-edcc0jlhvbqeh1euhq9n4ic5h39qj73s" },
         DataPath = "/oauth2redirect")]
     public class CustomUrlSchemeInterceptorActivity : Activity
     {

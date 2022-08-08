@@ -35,25 +35,13 @@
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>Xamarin.Auth Google PAuth</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.784590901798-10q2tqjo9136bo4g0p1ge7j3lvp3qka3</string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-		</dict>
-	</array>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Document Type 1</string>
-		</dict>
-	</array>
-
+	<key>CLIENT_ID</key>
+	<string>999007805390-o9s340sr8ts4u8h0mk5f7ed3il5lev2n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.999007805390-o9s340sr8ts4u8h0mk5f7ed3il5lev2n</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.companyname.GoogleSignIn</string>
 </dict>
 </plist>
