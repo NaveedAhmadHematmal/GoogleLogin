@@ -122,5 +122,43 @@ namespace GoogleSignIn
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(authenticator);
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            string clientId = null;
+            string redirectUri = null;
+            string secretId = null;
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    clientId = Constants.FacebookiOSClientId;
+                    secretId = Constants.FacebookiOSSecrettId;
+                    redirectUri = Constants.FacebookiOSRedirectUrl;
+                    break;
+
+                case Device.Android:
+                    secretId = Constants.FacebookAndroidSecretId;
+                    clientId = Constants.FacebookAndroidClientId;
+                    redirectUri = Constants.FacebookAndroidRedirectUrl;
+                    break;
+            }
+
+            var authenticator = new OAuth2Authenticator(
+                clientId,
+                null,
+                new Uri(Constants.FacebookAuthorizeUrl),
+                new Uri(Constants.FacebookAndroidRedirectUrl),
+                null,
+                true);
+
+            authenticator.Completed += OnAuthCompleted;
+            authenticator.Error += OnAuthError;
+
+            AuthenticationState.Authenticator = authenticator;
+
+            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            presenter.Login(authenticator);
+        }
     }
 }

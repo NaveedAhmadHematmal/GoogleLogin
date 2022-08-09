@@ -23,18 +23,21 @@
 
         // Facebook OAuth
         // For Facebook login, configure at https://developers.facebook.com
-        public static string FacebookiOSClientId = "<insert IOS client ID here>";
-        public static string FacebookAndroidClientId = "730487788164293";
+        public static string FacebookiOSClientId = "1418498105336914";
+        public static string FacebookAndroidClientId = "1418498105336914";
+
+        public static string FacebookiOSSecrettId = "33cd1f64f30b686c819f5f94b7311208";
+        public static string FacebookAndroidSecretId = "33cd1f64f30b686c819f5f94b7311208";
 
         // These values do not need changing
         public static string FacebookScope = "email";
-        public static string FacebookAuthorizeUrl = "https://www.facebook.com/dialog/oauth/";
+        public static string FacebookAuthorizeUrl = "https://www.facebook.com/v14.0/dialog/oauth";
         public static string FacebookAccessTokenUrl = "https://www.facebook.com/connect/login_success.html";
         public static string FacebookUserInfoUrl = "https://graph.facebook.com/me?fields=email&access_token={accessToken}";
 
         // Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
-        public static string FacebookiOSRedirectUrl = "<insert IOS redirect URL here>:/oauth2redirect";
-        public static string FacebookAndroidRedirectUrl = "https://www.facebook.com/connect/login_success.html";
+        public static string FacebookiOSRedirectUrl = "https://knobl.com:/oauth2redirect";
+        public static string FacebookAndroidRedirectUrl = "https://knobl.com:/oauth2redirect";
 
         //-------------------------------------------------------------------------------------------------------
 
