@@ -32,4 +32,31 @@ namespace GoogleSignIn.Droid
             return;
         }
     }
+
+    [Activity(Label = "CustomUrlSchemeInterceptorSpotifyActivity", NoHistory = true, LaunchMode = LaunchMode.SingleTop, Exported = true)]
+    [IntentFilter(
+        new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
+        DataSchemes = new[] { "com.companyname.googlesignin" },
+        DataPath = "/oauth2redirect")]
+    public class CustomUrlSchemeInterceptorSpotifyActivity : Activity
+    {
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            // Convert Android.Net.Url to Uri
+            var uri = new Uri(Intent.Data.ToString());
+
+            // Load redirectUrl page
+            AuthenticationState.Authenticator.OnPageLoading(uri);
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
+            StartActivity(intent);
+
+            this.Finish();
+
+            return;
+        }
+    }
 }

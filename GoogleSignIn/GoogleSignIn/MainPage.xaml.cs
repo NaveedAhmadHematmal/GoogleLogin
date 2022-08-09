@@ -82,5 +82,45 @@ namespace GoogleSignIn
 
             Debug.WriteLine("Authentication error: " + e.Message);
         }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            string clientId = null;
+            string secretId = null;
+            string redirectUri = null;
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    clientId = Constants.SpotifyiOSClientId;
+                    secretId = Constants.SpotifyiOSSecretId;
+                    redirectUri = Constants.SpotifyiOSRedirectUrl;
+                    break;
+
+                case Device.Android:
+                    secretId = Constants.SpotifyAndroidSecretId;
+                    clientId = Constants.SpotifyAndroidClientId;
+                    redirectUri = Constants.SpotifyAndroidRedirectUrl;
+                    break;
+            }
+
+            var authenticator = new OAuth2Authenticator(
+                clientId,
+                secretId,
+                Constants.SpotifyScope,
+                new Uri(Constants.SpotifyAuthorizeUrl),
+                new Uri(redirectUri),
+                new Uri(Constants.SpotifyAccessTokenUrl),
+                null,
+                true);
+
+            authenticator.Completed += OnAuthCompleted;
+            authenticator.Error += OnAuthError;
+
+            AuthenticationState.Authenticator = authenticator;
+
+            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            presenter.Login(authenticator);
+        }
     }
 }

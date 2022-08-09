@@ -5,6 +5,7 @@
 
     <StackLayout>
         <Button Text="login with Goolge" Clicked="Button_Clicked"/>
+        <Button Text="login with Spotify" Clicked="Button_Clicked_2"/>
     </StackLayout>
 
 </ContentPage>
