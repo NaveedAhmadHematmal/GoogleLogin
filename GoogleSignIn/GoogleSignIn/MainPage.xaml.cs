@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GoogleSignIn.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Auth;
@@ -12,6 +14,7 @@ namespace GoogleSignIn
 {
     public partial class MainPage : ContentPage
     {
+        bool teslaVisible = false;
         public MainPage()
         {
             InitializeComponent();
@@ -66,11 +69,17 @@ namespace GoogleSignIn
 
             if (e.IsAuthenticated)
             {
-                // Call apis from this place
-                var s = 10;
+                if (authenticator.AuthorizeUrl.Host == "www.facebook.com")
+                {
+                    var f = 10;
+                }
+                else if (authenticator.AuthorizeUrl.Host == "accounts.google.com")
+                {
+                    var s = 10;
+                }
             }
         }
-
+        string CodeVerifier;
         void OnAuthError(object sender, AuthenticatorErrorEventArgs e)
         {
             var authenticator = sender as OAuth2Authenticator;
@@ -160,5 +169,30 @@ namespace GoogleSignIn
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(authenticator);
         }
+
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            CodeVerifier = GeneratorService.GenerateNonce();
+            var CodeChallenge = GeneratorService.GenerateCodeChallenge(CodeVerifier);
+
+            var code_challenge_method = "S256";
+
+            TeslaView.IsVisible = true;
+            TeslaView.Source = $"{Constants.TeslaAuthorizeUrl}?response_type=code&client_id={Constants.TeslaiOSClientId}&state=1234&scope={Constants.TeslaScope}&redirect_uri={Constants.TeslaiOSRedirectUrl}&code_challenge={CodeChallenge}&code_challenge_method={code_challenge_method}";
+            TeslaView.Navigating += TeslaView_Navigating;
+        }
+
+        private async void TeslaView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            if (e.Url.Contains("https://auth.tesla.com/void/callback?code="))
+            {
+                var code = e.Url.Substring((e.Url.IndexOf("code=") + 5), (e.Url.IndexOf('&') - (e.Url.IndexOf("code=") + 5)));
+                TeslaView.IsVisible = false;
+                var accessToken = await GeneratorService.OnGet(code, CodeVerifier);
+
+
+                var breakPointHere = "place_break_point_here_and_check_above_accesstoken_variable_if_it_has_accesstoken";
+            }
+        }  
     }
 }

@@ -59,5 +59,25 @@
         public static string SpotifyiOSRedirectUrl = "com.companyname.googlesignin:/oauth2redirect";
         public static string SpotifyAndroidRedirectUrl = "com.companyname.googlesignin:/oauth2redirect";
 
+        //-------------------------------------------------------------------------------------------------------
+
+        // Tesla OAuth
+        // For Tesla login, configure at https://developer.spotify.com/
+        public static string TeslaiOSClientId = "ownerapi";
+        public static string TeslaAndroidClientId = "ownerapi";
+
+        public static string TeslaiOSSecretId = "123";
+        public static string TeslaAndroidSecretId = "123";
+
+        // These values do not need changing
+        public static string TeslaScope = "openid email offline_access";
+        public static string TeslaAuthorizeUrl = "https://auth.tesla.com/oauth2/v3/authorize";
+        public static string TeslaAccessTokenUrl = "https://auth.tesla.com/oauth2/v3/token";
+        public static string TeslaUserInfoUrl = "...";
+
+        // Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
+        public static string TeslaiOSRedirectUrl = "https://auth.tesla.com/void/callback";
+        public static string TeslaAndroidRedirectUrl = "https://auth.tesla.com/void/callback";
+
     }
 }

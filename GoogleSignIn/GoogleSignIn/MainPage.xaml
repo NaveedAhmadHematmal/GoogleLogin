@@ -4,11 +4,19 @@
              x:Class="GoogleSignIn.MainPage">
 
     <StackLayout>
-        <Button Text="login with Goolge" Clicked="Button_Clicked"/>
-        <Button Text="login with Spotify" Clicked="Button_Clicked_2"/>
+        <Button Text="login with Goolge"
+                Clicked="Button_Clicked" />
+        <Button Text="login with Spotify"
+                Clicked="Button_Clicked_2" />
         <Button Text="login with Facebook"
                 Clicked="Button_Clicked_1" />
+        <Button Text="login with Tesla"
+                Clicked="Button_Clicked_3" />
 
+        <WebView x:Name="TeslaView"
+                 WidthRequest="500"
+                 HeightRequest="500"
+                 IsVisible="false"></WebView>
     </StackLayout>
 
 </ContentPage>
