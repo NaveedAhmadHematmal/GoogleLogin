@@ -36,8 +36,8 @@
         public static string FacebookUserInfoUrl = "https://graph.facebook.com/me?fields=email&access_token={accessToken}";
 
         // Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
-        public static string FacebookiOSRedirectUrl = "https://knobl.com:/oauth2redirect";
-        public static string FacebookAndroidRedirectUrl = "https://knobl.com:/oauth2redirect";
+        public static string FacebookiOSRedirectUrl = "fb1418498105336914://authorize";
+        public static string FacebookAndroidRedirectUrl = "fb1418498105336914://authorize";
 
         //-------------------------------------------------------------------------------------------------------
 
